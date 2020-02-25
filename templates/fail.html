@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block input %}
+    <h1>Maybe failed ...</h1>
+        <h2>Please return to the top page</h2>
+            <form action="{% url 'redirect' %}">
+                <br>
+                <p>{{ except }}</p>
+                <br>
+                    <button class="btn_out">TOP</button>
+                <br>
+                <br>
+                <hr>
+            </form>
+{% endblock %}

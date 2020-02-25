@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block input %}
+    <h1>Maybe failed ...</h1>
+        <h2>Please try again</h2>
+            <form action="{% url 'create' %}" method="POST">{% csrf_token %}
+                <br>
+                <p>処理に失敗しました</p>
+                <br>
+                    <button class="btn_out">戻る</button>
+                <br>
+                <br>
+                <hr>
+            </form>
+            <form action="{% url 'logout' %}" method="POST">{% csrf_token %}
+                <button class="btn_out">ログアウト</button>
+            <br>
+            <br>
+            </form>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block input %}
+    <h1>LOGOUT</h1>
+        <h2>Thank you for using it!</h2>
+            <form action="{% url 'redirect' %}">
+                <br>
+                <p>ログアウトしました</p>
+                <br>
+                    <button class="btn_out">TOP</button>
+                <br>
+                <br>
+                <hr>
+            </form>
+{% endblock %}

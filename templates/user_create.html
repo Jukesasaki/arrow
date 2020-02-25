@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% block input %}
+    <h1>CREATE</h1>
+    <h2>Please enter employee information</h2>
+    <p style="color:#FF3366;">
+        {{ message }}
+    </p>
+    <form action="{% url 'j_in' %}" method="POST">{% csrf_token %}
+        <table class="tbl_wide">{{ form.as_table }}
+            <tr>
+                <td colspan="2">
+                    <button class="btn">登録</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+    <table class="t_more_w">
+        <tr>
+            <td>
+                番号
+            </td>
+            <td>
+                ID
+            </td>
+            <td>
+                権限
+            </td>
+            <td>
+                変更
+            </td>
+            <td>
+                削除
+            </td>
+        </tr>
+        {% for i in user_table %}
+            <tr>
+                <td>
+                    {{ i.id }}
+                </td>
+                <td>
+                    {{ i.name }}
+                </td>
+                <td>
+                    {% if i.level == 0 %}
+                        管理者
+                    {% else %}
+                        一般
+                    {% endif %}
+                </td>
+                <td>
+                    <form action="{% url 'update' %}" method="POST">{% csrf_token %}
+                        <button class="btn_u_d" value="{{ i.id }}" name="id">変更</button>
+                    </form>
+                </td>
+                <td>
+                    <form action="{% url 'j_del' %}" method="POST">{% csrf_token %}
+                        <button class="btn_u_d" value="{{ i.id }}" name="id">削除</button>
+                    </form>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+    <form action="{% url 'login' %}" method="POST">{% csrf_token %}
+        <button class="btn_out">戻る</button>
+    </form>
+    <form action="{% url 'logout' %}" method="POST">{% csrf_token %}
+        <button class="btn_out">ログアウト</button>
+        <br><br>
+    </form>
+{% endblock %}

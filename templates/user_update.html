@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block input %}
+    <h1>CHECKER</h1>
+    <h2>Please enter the type of sales partner</h2>
+    <p style="color:#FF3366;">
+        {{ message }}
+    </p>
+    <form action="{% url 'j_up' %}" method="POST">{% csrf_token %}
+
+        <table>{{ form.as_table}}
+            <tr>
+                <td colspan="2">
+                    <button class="btn" value="{{ id }}" name="id">更新</button>
+                </td>
+            </tr>
+            </table>
+    </form>
+    <form action="{% url 'create' %}" method="POST">{% csrf_token %}
+        <button class="btn_out">戻る</button>
+    </form>
+    <form action="{% url 'logout' %}" method="POST">{% csrf_token %}
+        <button class="btn_out">ログアウト</button>
+        <br><br>
+    </form>
+{% endblock %}

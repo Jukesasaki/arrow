@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block input %}
+    <h1>RESULT</h1>
+    <h2>Check the attributes of the sales partner.</h2>
+    <form action="{% url 'login' %}" method="POST">{% csrf_token %}
+
+        <table class="tbl_wide">
+            <tr>
+                <td colspan="2">
+                    {{ typ_name }}
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    {{ type }}
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    {{ keyword }}
+                </td>
+            </tr>
+            {% if session == 0 %}
+                <tr>
+                    <td colspan="2">
+                        <button type="button" onclick="openimg()" class="btn">グラフ表示</button>
+                    </td>
+                </tr>
+            {% endif %}
+            <tr>
+                <td colspan="2">
+                    <button class="btn">戻る</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+    <form action="{% url 'logout' %}" method="POST">{% csrf_token %}
+        <button class="btn_out">ログアウト</button>
+        <br>
+        <br>
+    </form>
+    <script type="text/javascript">
+        function openimg() {
+            window.open("{% static 'img.png' %}", "散布図", "width=400,height=400");
+
+        }
+    </script>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block input %}
+    <h1>CHECKER</h1>
+    <h2>Please enter the type of sales partner</h2>
+    <form action="{% url 'result' %}" method="POST">{% csrf_token %}
+
+        <table>{{ form.as_table}}
+            <tr>
+                <td colspan="2">
+                    <button class="btn">送信</button>
+                </td>
+            </tr>
+            </table>
+    </form>
+    {% if session == 0 %}
+        <form action="{% url 'create' %}" method="POST">{% csrf_token %}
+            <button class="btn_out">ユーザ管理</button>
+        </form>
+        <br><br>
+    {% endif %}
+    <form action="{% url 'logout' %}" method="POST">{% csrf_token %}
+        <button class="btn_out">ログアウト</button>
+    <br>
+    <br>
+    </form>
+{% endblock %}

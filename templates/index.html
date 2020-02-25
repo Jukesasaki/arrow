@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block input %}
+    <h1>ARROW</h1>
+    <h2>This sys is targeting sales...</h2>
+    <p style="color:#FF3366;">
+        {{ message }}
+    </p>
+    <form action="{% url 'login' %}" method="POST" name="state">{% csrf_token %}
+        <table>
+            <tr>
+                <th colspan="2">ログイン</th>
+            </tr>
+            <tr>
+                <td>
+                    <label for="name">ID:</label>
+                    <input type="text" name="name" id="name">
+                </td>
+                <td>
+                    <label for="pass">PASS:</label>
+                    <input type="password" name="pass" id="pass">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <button class="btn" type="submit" value="login" onclick="return check()">　　　　送信　　　　</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+    <script type="text/javascript">
+    function check() {
+
+        if (state.name.value === "" ||
+            state.pass.value === ""
+        ) {
+            alert("未記入欄が存在します");
+            return false;
+        } else{
+            return true;
+        }
+    }
+    </script>
+{% endblock %}
