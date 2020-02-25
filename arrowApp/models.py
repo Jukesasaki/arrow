@@ -28,4 +28,4 @@ class Data(models.Model):
     x = models.IntegerField(null=False)
     y = models.IntegerField(null=False)
     word = models.CharField(max_length=30, null=False)
-    c_type = models.CharField(max_length=10)
+    c_type = models.CharField(max_length=10, null=True)

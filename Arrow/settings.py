@@ -85,7 +85,7 @@ WSGI_APPLICATION = 'Arrow.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'postgres',
+        'NAME': 'appDB',
         'USER': 'postgres',
         'PASSWORD': 'arrowmgr',
         'HOST': '127.0.0.1',

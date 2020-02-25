@@ -28,5 +28,5 @@ def customer_type_create():
     color = []
     for i in range(len(df)):
         color.append(type_check(df['x'].values[i], df['y'].values[i]))
-    for i, key in enumerate(color):
-        Data.objects.filter(id=i + 1).update_or_create(c_type=key)
+    for i, key in enumerate(color, 1):
+        Data.objects.filter(id=i).update_or_create(c_type=key)

@@ -12,8 +12,8 @@ DB内のテーブル(CUSTOMER,DATA,USER）が用意されていない段階で�
 
 def start_preparation():
     # CUSTOMERテーブルへランダムなデータを生成
-    customer_export()
-
+    # customer_export()
+    #
     # CUSTOMERテーブルデータを基にDATAテーブルデータ生成
     data_input()
 

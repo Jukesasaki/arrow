@@ -45,7 +45,7 @@ def data_logic(data):
     else:
         x += 8
         y -= 1
-    Data.objects.create(
+    Data.objects.update_or_create(
         x=x,
         y=y,
         word=data.word
