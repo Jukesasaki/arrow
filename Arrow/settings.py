@@ -101,16 +101,8 @@ WSGI_APPLICATION = 'Arrow.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'appDB',
-        'USER': 'postgres',
-        'PASSWORD': 'arrowmgr',
-        'HOST': '127.0.0.1',
-        'PORT': 5432,
-    }
-}
+if local_setting:
+    DATABASES = local_setting.DATABASES
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
