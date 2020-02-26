@@ -1,6 +1,5 @@
 import sys
 
-import pandas as pd
 from arrowApp.models import Data
 from util import log_util
 
@@ -25,13 +24,10 @@ def type_check(x, y):
 def customer_type_create():
     log_util.log_util(sys._getframe().f_code.co_name)
     data = Data.objects.all().values('x', 'y')
-    # # xy_data = Data.objects.all().values('x', 'y')
-    # # # df = pd.DataFrame(data=xy_data, columns=['x', 'y'])
     color = []
-    # for i in range(len(df)):
-    #     color.append(type_check(df['x'].values[i], df['y'].values[i]))
+    print(range(len(data)))
     for i in range(len(data)):
         color.append(type_check(data[i]['x'], data[i]['y']))
-        print(i, '=', data[i]['x'], data[i]['y'])
-    for i, key in enumerate(color):
-        Data.objects.filter(id=i+1).update_or_create(c_type=key)
+        print(i, 'とは：', data[i]['x'], data[i]['y'])
+    for n, key in enumerate(color):
+        Data.objects.filter(id=n+1).update(c_type=key)

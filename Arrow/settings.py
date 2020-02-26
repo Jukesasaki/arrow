@@ -12,6 +12,15 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 import os
 
+try:
+    from .local_settings import *
+except ImportError:
+    pass
+try:
+    from . import local_setting
+except ImportError:
+    pass
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -19,10 +28,13 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'i^gu+)jhl=753+%f%_nk36i6cc!9=c8%h3mwi(cx)tnkq2okk3'
+if local_setting.SECRET_KEY:
+    SECRET_KEY = local_setting.SECRET_KEY
+else:
+    SECRET_KEY = os.environ['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = []
 
