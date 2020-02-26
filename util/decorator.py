@@ -26,9 +26,13 @@ def login_filter(func):
                 else:
                     d = {'message': user}
                     return render(request, 'index.html', d)
-        except RequestException as e:
+        # except RequestException as e:
+        #     request.session.clear()
+        #     d = {'except': e}
+        #     return render(request, 'fail.html', d)
+        except:
             request.session.clear()
-            d = {'except': e}
+            d = {'except': '認証失敗'}
             return render(request, 'fail.html', d)
 
     return login_judge
@@ -49,9 +53,13 @@ def session_filter(func):
                 else:
                     d = {'except': 'セッションエラー'}
                     return render(request, 'fail.html', d)
-        except RequestException as e:
+        # except RequestException as e:
+        #     request.session.clear()
+        #     d = {'except': e}
+        #     return render(request, 'fail.html', d)
+        except:
             request.session.clear()
-            d = {'except': e}
+            d = {'except': '認証失敗'}
             return render(request, 'fail.html', d)
 
     return session_judge
