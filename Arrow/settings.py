@@ -71,7 +71,7 @@ MIDDLEWARE = [
     'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
-SESSION_ENGINE = 'django.contrib.sessions.backends.cache'
+SESSION_ENGINE = 'django.contrib.sessions.backends.cached_db'
 SESSION_COOKIE_AGE = 600
 SESSION_SAVE_EVERY_REQUEST = True
 
@@ -102,7 +102,12 @@ WSGI_APPLICATION = 'Arrow.wsgi.application'
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
 if local_setting:
-    DATABASES = local_setting.DATABASES
+    import dj_database_url
+
+    db_from_env = dj_database_url.config()
+    DATABASES = {
+        'default': dj_database_url.config()
+    }
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
