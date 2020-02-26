@@ -5,7 +5,27 @@
 -- Dumped from database version 12.2
 -- Dumped by pg_dump version 12.2
 
--- Started on 2020-02-27 06:04:54
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET xmloption = content;
+SET client_min_messages = warning;
+SET row_security = off;
+
+--
+-- Name: appDB; Type: DATABASE; Schema: -; Owner: postgres
+--
+
+CREATE DATABASE "appDB" WITH TEMPLATE = template0 ENCODING = 'UTF8' LC_COLLATE = 'C' LC_CTYPE = 'C';
+
+
+ALTER DATABASE "appDB" OWNER TO postgres;
+
+\connect "appDB"
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -23,7 +43,6 @@ SET default_tablespace = '';
 SET default_table_access_method = heap;
 
 --
--- TOC entry 221 (class 1259 OID 16739)
 -- Name: arrowApp_customer; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -43,7 +62,6 @@ CREATE TABLE public."arrowApp_customer" (
 ALTER TABLE public."arrowApp_customer" OWNER TO postgres;
 
 --
--- TOC entry 220 (class 1259 OID 16737)
 -- Name: arrowApp_customer_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -59,8 +77,6 @@ CREATE SEQUENCE public."arrowApp_customer_id_seq"
 ALTER TABLE public."arrowApp_customer_id_seq" OWNER TO postgres;
 
 --
--- TOC entry 2992 (class 0 OID 0)
--- Dependencies: 220
 -- Name: arrowApp_customer_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -68,7 +84,6 @@ ALTER SEQUENCE public."arrowApp_customer_id_seq" OWNED BY public."arrowApp_custo
 
 
 --
--- TOC entry 223 (class 1259 OID 16747)
 -- Name: arrowApp_data; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -84,7 +99,6 @@ CREATE TABLE public."arrowApp_data" (
 ALTER TABLE public."arrowApp_data" OWNER TO postgres;
 
 --
--- TOC entry 222 (class 1259 OID 16745)
 -- Name: arrowApp_data_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -100,8 +114,6 @@ CREATE SEQUENCE public."arrowApp_data_id_seq"
 ALTER TABLE public."arrowApp_data_id_seq" OWNER TO postgres;
 
 --
--- TOC entry 2993 (class 0 OID 0)
--- Dependencies: 222
 -- Name: arrowApp_data_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -109,7 +121,6 @@ ALTER SEQUENCE public."arrowApp_data_id_seq" OWNED BY public."arrowApp_data".id;
 
 
 --
--- TOC entry 225 (class 1259 OID 16755)
 -- Name: arrowApp_user; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -124,7 +135,6 @@ CREATE TABLE public."arrowApp_user" (
 ALTER TABLE public."arrowApp_user" OWNER TO postgres;
 
 --
--- TOC entry 224 (class 1259 OID 16753)
 -- Name: arrowApp_user_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -140,8 +150,6 @@ CREATE SEQUENCE public."arrowApp_user_id_seq"
 ALTER TABLE public."arrowApp_user_id_seq" OWNER TO postgres;
 
 --
--- TOC entry 2994 (class 0 OID 0)
--- Dependencies: 224
 -- Name: arrowApp_user_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -149,7 +157,6 @@ ALTER SEQUENCE public."arrowApp_user_id_seq" OWNED BY public."arrowApp_user".id;
 
 
 --
--- TOC entry 209 (class 1259 OID 16619)
 -- Name: auth_group; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -162,7 +169,6 @@ CREATE TABLE public.auth_group (
 ALTER TABLE public.auth_group OWNER TO postgres;
 
 --
--- TOC entry 208 (class 1259 OID 16617)
 -- Name: auth_group_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -178,8 +184,6 @@ CREATE SEQUENCE public.auth_group_id_seq
 ALTER TABLE public.auth_group_id_seq OWNER TO postgres;
 
 --
--- TOC entry 2995 (class 0 OID 0)
--- Dependencies: 208
 -- Name: auth_group_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -187,7 +191,6 @@ ALTER SEQUENCE public.auth_group_id_seq OWNED BY public.auth_group.id;
 
 
 --
--- TOC entry 211 (class 1259 OID 16629)
 -- Name: auth_group_permissions; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -201,7 +204,6 @@ CREATE TABLE public.auth_group_permissions (
 ALTER TABLE public.auth_group_permissions OWNER TO postgres;
 
 --
--- TOC entry 210 (class 1259 OID 16627)
 -- Name: auth_group_permissions_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -217,8 +219,6 @@ CREATE SEQUENCE public.auth_group_permissions_id_seq
 ALTER TABLE public.auth_group_permissions_id_seq OWNER TO postgres;
 
 --
--- TOC entry 2996 (class 0 OID 0)
--- Dependencies: 210
 -- Name: auth_group_permissions_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -226,7 +226,6 @@ ALTER SEQUENCE public.auth_group_permissions_id_seq OWNED BY public.auth_group_p
 
 
 --
--- TOC entry 207 (class 1259 OID 16611)
 -- Name: auth_permission; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -241,7 +240,6 @@ CREATE TABLE public.auth_permission (
 ALTER TABLE public.auth_permission OWNER TO postgres;
 
 --
--- TOC entry 206 (class 1259 OID 16609)
 -- Name: auth_permission_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -257,8 +255,6 @@ CREATE SEQUENCE public.auth_permission_id_seq
 ALTER TABLE public.auth_permission_id_seq OWNER TO postgres;
 
 --
--- TOC entry 2997 (class 0 OID 0)
--- Dependencies: 206
 -- Name: auth_permission_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -266,7 +262,6 @@ ALTER SEQUENCE public.auth_permission_id_seq OWNED BY public.auth_permission.id;
 
 
 --
--- TOC entry 213 (class 1259 OID 16637)
 -- Name: auth_user; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -288,7 +283,6 @@ CREATE TABLE public.auth_user (
 ALTER TABLE public.auth_user OWNER TO postgres;
 
 --
--- TOC entry 215 (class 1259 OID 16647)
 -- Name: auth_user_groups; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -302,7 +296,6 @@ CREATE TABLE public.auth_user_groups (
 ALTER TABLE public.auth_user_groups OWNER TO postgres;
 
 --
--- TOC entry 214 (class 1259 OID 16645)
 -- Name: auth_user_groups_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -318,8 +311,6 @@ CREATE SEQUENCE public.auth_user_groups_id_seq
 ALTER TABLE public.auth_user_groups_id_seq OWNER TO postgres;
 
 --
--- TOC entry 2998 (class 0 OID 0)
--- Dependencies: 214
 -- Name: auth_user_groups_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -327,7 +318,6 @@ ALTER SEQUENCE public.auth_user_groups_id_seq OWNED BY public.auth_user_groups.i
 
 
 --
--- TOC entry 212 (class 1259 OID 16635)
 -- Name: auth_user_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -343,8 +333,6 @@ CREATE SEQUENCE public.auth_user_id_seq
 ALTER TABLE public.auth_user_id_seq OWNER TO postgres;
 
 --
--- TOC entry 2999 (class 0 OID 0)
--- Dependencies: 212
 -- Name: auth_user_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -352,7 +340,6 @@ ALTER SEQUENCE public.auth_user_id_seq OWNED BY public.auth_user.id;
 
 
 --
--- TOC entry 217 (class 1259 OID 16655)
 -- Name: auth_user_user_permissions; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -366,7 +353,6 @@ CREATE TABLE public.auth_user_user_permissions (
 ALTER TABLE public.auth_user_user_permissions OWNER TO postgres;
 
 --
--- TOC entry 216 (class 1259 OID 16653)
 -- Name: auth_user_user_permissions_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -382,8 +368,6 @@ CREATE SEQUENCE public.auth_user_user_permissions_id_seq
 ALTER TABLE public.auth_user_user_permissions_id_seq OWNER TO postgres;
 
 --
--- TOC entry 3000 (class 0 OID 0)
--- Dependencies: 216
 -- Name: auth_user_user_permissions_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -391,7 +375,6 @@ ALTER SEQUENCE public.auth_user_user_permissions_id_seq OWNED BY public.auth_use
 
 
 --
--- TOC entry 219 (class 1259 OID 16715)
 -- Name: django_admin_log; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -411,7 +394,6 @@ CREATE TABLE public.django_admin_log (
 ALTER TABLE public.django_admin_log OWNER TO postgres;
 
 --
--- TOC entry 218 (class 1259 OID 16713)
 -- Name: django_admin_log_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -427,8 +409,6 @@ CREATE SEQUENCE public.django_admin_log_id_seq
 ALTER TABLE public.django_admin_log_id_seq OWNER TO postgres;
 
 --
--- TOC entry 3001 (class 0 OID 0)
--- Dependencies: 218
 -- Name: django_admin_log_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -436,7 +416,6 @@ ALTER SEQUENCE public.django_admin_log_id_seq OWNED BY public.django_admin_log.i
 
 
 --
--- TOC entry 205 (class 1259 OID 16601)
 -- Name: django_content_type; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -450,7 +429,6 @@ CREATE TABLE public.django_content_type (
 ALTER TABLE public.django_content_type OWNER TO postgres;
 
 --
--- TOC entry 204 (class 1259 OID 16599)
 -- Name: django_content_type_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -466,8 +444,6 @@ CREATE SEQUENCE public.django_content_type_id_seq
 ALTER TABLE public.django_content_type_id_seq OWNER TO postgres;
 
 --
--- TOC entry 3002 (class 0 OID 0)
--- Dependencies: 204
 -- Name: django_content_type_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -475,7 +451,6 @@ ALTER SEQUENCE public.django_content_type_id_seq OWNED BY public.django_content_
 
 
 --
--- TOC entry 203 (class 1259 OID 16590)
 -- Name: django_migrations; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -490,7 +465,6 @@ CREATE TABLE public.django_migrations (
 ALTER TABLE public.django_migrations OWNER TO postgres;
 
 --
--- TOC entry 202 (class 1259 OID 16588)
 -- Name: django_migrations_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -506,8 +480,6 @@ CREATE SEQUENCE public.django_migrations_id_seq
 ALTER TABLE public.django_migrations_id_seq OWNER TO postgres;
 
 --
--- TOC entry 3003 (class 0 OID 0)
--- Dependencies: 202
 -- Name: django_migrations_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -515,7 +487,6 @@ ALTER SEQUENCE public.django_migrations_id_seq OWNED BY public.django_migrations
 
 
 --
--- TOC entry 226 (class 1259 OID 16770)
 -- Name: django_session; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -529,7 +500,6 @@ CREATE TABLE public.django_session (
 ALTER TABLE public.django_session OWNER TO postgres;
 
 --
--- TOC entry 2771 (class 2604 OID 16742)
 -- Name: arrowApp_customer id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -537,7 +507,6 @@ ALTER TABLE ONLY public."arrowApp_customer" ALTER COLUMN id SET DEFAULT nextval(
 
 
 --
--- TOC entry 2772 (class 2604 OID 16750)
 -- Name: arrowApp_data id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -545,7 +514,6 @@ ALTER TABLE ONLY public."arrowApp_data" ALTER COLUMN id SET DEFAULT nextval('pub
 
 
 --
--- TOC entry 2773 (class 2604 OID 16758)
 -- Name: arrowApp_user id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -553,7 +521,6 @@ ALTER TABLE ONLY public."arrowApp_user" ALTER COLUMN id SET DEFAULT nextval('pub
 
 
 --
--- TOC entry 2764 (class 2604 OID 16622)
 -- Name: auth_group id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -561,7 +528,6 @@ ALTER TABLE ONLY public.auth_group ALTER COLUMN id SET DEFAULT nextval('public.a
 
 
 --
--- TOC entry 2765 (class 2604 OID 16632)
 -- Name: auth_group_permissions id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -569,7 +535,6 @@ ALTER TABLE ONLY public.auth_group_permissions ALTER COLUMN id SET DEFAULT nextv
 
 
 --
--- TOC entry 2763 (class 2604 OID 16614)
 -- Name: auth_permission id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -577,7 +542,6 @@ ALTER TABLE ONLY public.auth_permission ALTER COLUMN id SET DEFAULT nextval('pub
 
 
 --
--- TOC entry 2766 (class 2604 OID 16640)
 -- Name: auth_user id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -585,7 +549,6 @@ ALTER TABLE ONLY public.auth_user ALTER COLUMN id SET DEFAULT nextval('public.au
 
 
 --
--- TOC entry 2767 (class 2604 OID 16650)
 -- Name: auth_user_groups id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -593,7 +556,6 @@ ALTER TABLE ONLY public.auth_user_groups ALTER COLUMN id SET DEFAULT nextval('pu
 
 
 --
--- TOC entry 2768 (class 2604 OID 16658)
 -- Name: auth_user_user_permissions id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -601,7 +563,6 @@ ALTER TABLE ONLY public.auth_user_user_permissions ALTER COLUMN id SET DEFAULT n
 
 
 --
--- TOC entry 2769 (class 2604 OID 16718)
 -- Name: django_admin_log id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -609,7 +570,6 @@ ALTER TABLE ONLY public.django_admin_log ALTER COLUMN id SET DEFAULT nextval('pu
 
 
 --
--- TOC entry 2762 (class 2604 OID 16604)
 -- Name: django_content_type id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -617,7 +577,6 @@ ALTER TABLE ONLY public.django_content_type ALTER COLUMN id SET DEFAULT nextval(
 
 
 --
--- TOC entry 2761 (class 2604 OID 16593)
 -- Name: django_migrations id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -625,8 +584,6 @@ ALTER TABLE ONLY public.django_migrations ALTER COLUMN id SET DEFAULT nextval('p
 
 
 --
--- TOC entry 2981 (class 0 OID 16739)
--- Dependencies: 221
 -- Data for Name: arrowApp_customer; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -735,8 +692,6 @@ COPY public."arrowApp_customer" (id, age, sex, emo, od, intention, personality, 
 
 
 --
--- TOC entry 2983 (class 0 OID 16747)
--- Dependencies: 223
 -- Data for Name: arrowApp_data; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -845,8 +800,6 @@ COPY public."arrowApp_data" (id, x, y, word, c_type) FROM stdin;
 
 
 --
--- TOC entry 2985 (class 0 OID 16755)
--- Dependencies: 225
 -- Data for Name: arrowApp_user; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -856,8 +809,6 @@ COPY public."arrowApp_user" (id, name, password, level) FROM stdin;
 
 
 --
--- TOC entry 2969 (class 0 OID 16619)
--- Dependencies: 209
 -- Data for Name: auth_group; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -866,8 +817,6 @@ COPY public.auth_group (id, name) FROM stdin;
 
 
 --
--- TOC entry 2971 (class 0 OID 16629)
--- Dependencies: 211
 -- Data for Name: auth_group_permissions; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -876,8 +825,6 @@ COPY public.auth_group_permissions (id, group_id, permission_id) FROM stdin;
 
 
 --
--- TOC entry 2967 (class 0 OID 16611)
--- Dependencies: 207
 -- Data for Name: auth_permission; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -922,8 +869,6 @@ COPY public.auth_permission (id, name, content_type_id, codename) FROM stdin;
 
 
 --
--- TOC entry 2973 (class 0 OID 16637)
--- Dependencies: 213
 -- Data for Name: auth_user; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -932,8 +877,6 @@ COPY public.auth_user (id, password, last_login, is_superuser, username, first_n
 
 
 --
--- TOC entry 2975 (class 0 OID 16647)
--- Dependencies: 215
 -- Data for Name: auth_user_groups; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -942,8 +885,6 @@ COPY public.auth_user_groups (id, user_id, group_id) FROM stdin;
 
 
 --
--- TOC entry 2977 (class 0 OID 16655)
--- Dependencies: 217
 -- Data for Name: auth_user_user_permissions; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -952,8 +893,6 @@ COPY public.auth_user_user_permissions (id, user_id, permission_id) FROM stdin;
 
 
 --
--- TOC entry 2979 (class 0 OID 16715)
--- Dependencies: 219
 -- Data for Name: django_admin_log; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -962,8 +901,6 @@ COPY public.django_admin_log (id, action_time, object_id, object_repr, action_fl
 
 
 --
--- TOC entry 2965 (class 0 OID 16601)
--- Dependencies: 205
 -- Data for Name: django_content_type; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -981,8 +918,6 @@ COPY public.django_content_type (id, app_label, model) FROM stdin;
 
 
 --
--- TOC entry 2963 (class 0 OID 16590)
--- Dependencies: 203
 -- Data for Name: django_migrations; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -1009,8 +944,6 @@ COPY public.django_migrations (id, app, name, applied) FROM stdin;
 
 
 --
--- TOC entry 2986 (class 0 OID 16770)
--- Dependencies: 226
 -- Data for Name: django_session; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -1019,8 +952,6 @@ COPY public.django_session (session_key, session_data, expire_date) FROM stdin;
 
 
 --
--- TOC entry 3004 (class 0 OID 0)
--- Dependencies: 220
 -- Name: arrowApp_customer_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
@@ -1028,8 +959,6 @@ SELECT pg_catalog.setval('public."arrowApp_customer_id_seq"', 100, true);
 
 
 --
--- TOC entry 3005 (class 0 OID 0)
--- Dependencies: 222
 -- Name: arrowApp_data_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
@@ -1037,8 +966,6 @@ SELECT pg_catalog.setval('public."arrowApp_data_id_seq"', 117, true);
 
 
 --
--- TOC entry 3006 (class 0 OID 0)
--- Dependencies: 224
 -- Name: arrowApp_user_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
@@ -1046,8 +973,6 @@ SELECT pg_catalog.setval('public."arrowApp_user_id_seq"', 1, true);
 
 
 --
--- TOC entry 3007 (class 0 OID 0)
--- Dependencies: 208
 -- Name: auth_group_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
@@ -1055,8 +980,6 @@ SELECT pg_catalog.setval('public.auth_group_id_seq', 1, false);
 
 
 --
--- TOC entry 3008 (class 0 OID 0)
--- Dependencies: 210
 -- Name: auth_group_permissions_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
@@ -1064,8 +987,6 @@ SELECT pg_catalog.setval('public.auth_group_permissions_id_seq', 1, false);
 
 
 --
--- TOC entry 3009 (class 0 OID 0)
--- Dependencies: 206
 -- Name: auth_permission_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
@@ -1073,8 +994,6 @@ SELECT pg_catalog.setval('public.auth_permission_id_seq', 36, true);
 
 
 --
--- TOC entry 3010 (class 0 OID 0)
--- Dependencies: 214
 -- Name: auth_user_groups_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
@@ -1082,8 +1001,6 @@ SELECT pg_catalog.setval('public.auth_user_groups_id_seq', 1, false);
 
 
 --
--- TOC entry 3011 (class 0 OID 0)
--- Dependencies: 212
 -- Name: auth_user_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
@@ -1091,8 +1008,6 @@ SELECT pg_catalog.setval('public.auth_user_id_seq', 1, false);
 
 
 --
--- TOC entry 3012 (class 0 OID 0)
--- Dependencies: 216
 -- Name: auth_user_user_permissions_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
@@ -1100,8 +1015,6 @@ SELECT pg_catalog.setval('public.auth_user_user_permissions_id_seq', 1, false);
 
 
 --
--- TOC entry 3013 (class 0 OID 0)
--- Dependencies: 218
 -- Name: django_admin_log_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
@@ -1109,8 +1022,6 @@ SELECT pg_catalog.setval('public.django_admin_log_id_seq', 1, false);
 
 
 --
--- TOC entry 3014 (class 0 OID 0)
--- Dependencies: 204
 -- Name: django_content_type_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
@@ -1118,8 +1029,6 @@ SELECT pg_catalog.setval('public.django_content_type_id_seq', 9, true);
 
 
 --
--- TOC entry 3015 (class 0 OID 0)
--- Dependencies: 202
 -- Name: django_migrations_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
@@ -1127,7 +1036,6 @@ SELECT pg_catalog.setval('public.django_migrations_id_seq', 18, true);
 
 
 --
--- TOC entry 2818 (class 2606 OID 16744)
 -- Name: arrowApp_customer arrowApp_customer_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1136,7 +1044,6 @@ ALTER TABLE ONLY public."arrowApp_customer"
 
 
 --
--- TOC entry 2820 (class 2606 OID 16752)
 -- Name: arrowApp_data arrowApp_data_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1145,7 +1052,6 @@ ALTER TABLE ONLY public."arrowApp_data"
 
 
 --
--- TOC entry 2822 (class 2606 OID 16760)
 -- Name: arrowApp_user arrowApp_user_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1154,7 +1060,6 @@ ALTER TABLE ONLY public."arrowApp_user"
 
 
 --
--- TOC entry 2787 (class 2606 OID 16768)
 -- Name: auth_group auth_group_name_key; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1163,7 +1068,6 @@ ALTER TABLE ONLY public.auth_group
 
 
 --
--- TOC entry 2792 (class 2606 OID 16671)
 -- Name: auth_group_permissions auth_group_permissions_group_id_permission_id_0cd325b0_uniq; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1172,7 +1076,6 @@ ALTER TABLE ONLY public.auth_group_permissions
 
 
 --
--- TOC entry 2795 (class 2606 OID 16634)
 -- Name: auth_group_permissions auth_group_permissions_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1181,7 +1084,6 @@ ALTER TABLE ONLY public.auth_group_permissions
 
 
 --
--- TOC entry 2789 (class 2606 OID 16624)
 -- Name: auth_group auth_group_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1190,7 +1092,6 @@ ALTER TABLE ONLY public.auth_group
 
 
 --
--- TOC entry 2782 (class 2606 OID 16662)
 -- Name: auth_permission auth_permission_content_type_id_codename_01ab375a_uniq; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1199,7 +1100,6 @@ ALTER TABLE ONLY public.auth_permission
 
 
 --
--- TOC entry 2784 (class 2606 OID 16616)
 -- Name: auth_permission auth_permission_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1208,7 +1108,6 @@ ALTER TABLE ONLY public.auth_permission
 
 
 --
--- TOC entry 2803 (class 2606 OID 16652)
 -- Name: auth_user_groups auth_user_groups_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1217,7 +1116,6 @@ ALTER TABLE ONLY public.auth_user_groups
 
 
 --
--- TOC entry 2806 (class 2606 OID 16686)
 -- Name: auth_user_groups auth_user_groups_user_id_group_id_94350c0c_uniq; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1226,7 +1124,6 @@ ALTER TABLE ONLY public.auth_user_groups
 
 
 --
--- TOC entry 2797 (class 2606 OID 16642)
 -- Name: auth_user auth_user_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1235,7 +1132,6 @@ ALTER TABLE ONLY public.auth_user
 
 
 --
--- TOC entry 2809 (class 2606 OID 16660)
 -- Name: auth_user_user_permissions auth_user_user_permissions_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1244,7 +1140,6 @@ ALTER TABLE ONLY public.auth_user_user_permissions
 
 
 --
--- TOC entry 2812 (class 2606 OID 16700)
 -- Name: auth_user_user_permissions auth_user_user_permissions_user_id_permission_id_14a6b632_uniq; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1253,7 +1148,6 @@ ALTER TABLE ONLY public.auth_user_user_permissions
 
 
 --
--- TOC entry 2800 (class 2606 OID 16762)
 -- Name: auth_user auth_user_username_key; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1262,7 +1156,6 @@ ALTER TABLE ONLY public.auth_user
 
 
 --
--- TOC entry 2815 (class 2606 OID 16724)
 -- Name: django_admin_log django_admin_log_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1271,7 +1164,6 @@ ALTER TABLE ONLY public.django_admin_log
 
 
 --
--- TOC entry 2777 (class 2606 OID 16608)
 -- Name: django_content_type django_content_type_app_label_model_76bd3d3b_uniq; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1280,7 +1172,6 @@ ALTER TABLE ONLY public.django_content_type
 
 
 --
--- TOC entry 2779 (class 2606 OID 16606)
 -- Name: django_content_type django_content_type_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1289,7 +1180,6 @@ ALTER TABLE ONLY public.django_content_type
 
 
 --
--- TOC entry 2775 (class 2606 OID 16598)
 -- Name: django_migrations django_migrations_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1298,7 +1188,6 @@ ALTER TABLE ONLY public.django_migrations
 
 
 --
--- TOC entry 2825 (class 2606 OID 16777)
 -- Name: django_session django_session_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1307,7 +1196,6 @@ ALTER TABLE ONLY public.django_session
 
 
 --
--- TOC entry 2785 (class 1259 OID 16769)
 -- Name: auth_group_name_a6ea08ec_like; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -1315,7 +1203,6 @@ CREATE INDEX auth_group_name_a6ea08ec_like ON public.auth_group USING btree (nam
 
 
 --
--- TOC entry 2790 (class 1259 OID 16682)
 -- Name: auth_group_permissions_group_id_b120cbf9; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -1323,7 +1210,6 @@ CREATE INDEX auth_group_permissions_group_id_b120cbf9 ON public.auth_group_permi
 
 
 --
--- TOC entry 2793 (class 1259 OID 16683)
 -- Name: auth_group_permissions_permission_id_84c5c92e; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -1331,7 +1217,6 @@ CREATE INDEX auth_group_permissions_permission_id_84c5c92e ON public.auth_group_
 
 
 --
--- TOC entry 2780 (class 1259 OID 16668)
 -- Name: auth_permission_content_type_id_2f476e4b; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -1339,7 +1224,6 @@ CREATE INDEX auth_permission_content_type_id_2f476e4b ON public.auth_permission 
 
 
 --
--- TOC entry 2801 (class 1259 OID 16698)
 -- Name: auth_user_groups_group_id_97559544; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -1347,7 +1231,6 @@ CREATE INDEX auth_user_groups_group_id_97559544 ON public.auth_user_groups USING
 
 
 --
--- TOC entry 2804 (class 1259 OID 16697)
 -- Name: auth_user_groups_user_id_6a12ed8b; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -1355,7 +1238,6 @@ CREATE INDEX auth_user_groups_user_id_6a12ed8b ON public.auth_user_groups USING 
 
 
 --
--- TOC entry 2807 (class 1259 OID 16712)
 -- Name: auth_user_user_permissions_permission_id_1fbb5f2c; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -1363,7 +1245,6 @@ CREATE INDEX auth_user_user_permissions_permission_id_1fbb5f2c ON public.auth_us
 
 
 --
--- TOC entry 2810 (class 1259 OID 16711)
 -- Name: auth_user_user_permissions_user_id_a95ead1b; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -1371,7 +1252,6 @@ CREATE INDEX auth_user_user_permissions_user_id_a95ead1b ON public.auth_user_use
 
 
 --
--- TOC entry 2798 (class 1259 OID 16763)
 -- Name: auth_user_username_6821ab7c_like; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -1379,7 +1259,6 @@ CREATE INDEX auth_user_username_6821ab7c_like ON public.auth_user USING btree (u
 
 
 --
--- TOC entry 2813 (class 1259 OID 16735)
 -- Name: django_admin_log_content_type_id_c4bce8eb; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -1387,7 +1266,6 @@ CREATE INDEX django_admin_log_content_type_id_c4bce8eb ON public.django_admin_lo
 
 
 --
--- TOC entry 2816 (class 1259 OID 16736)
 -- Name: django_admin_log_user_id_c564eba6; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -1395,7 +1273,6 @@ CREATE INDEX django_admin_log_user_id_c564eba6 ON public.django_admin_log USING 
 
 
 --
--- TOC entry 2823 (class 1259 OID 16779)
 -- Name: django_session_expire_date_a5c62663; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -1403,7 +1280,6 @@ CREATE INDEX django_session_expire_date_a5c62663 ON public.django_session USING 
 
 
 --
--- TOC entry 2826 (class 1259 OID 16778)
 -- Name: django_session_session_key_c0390e0f_like; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -1411,7 +1287,6 @@ CREATE INDEX django_session_session_key_c0390e0f_like ON public.django_session U
 
 
 --
--- TOC entry 2829 (class 2606 OID 16677)
 -- Name: auth_group_permissions auth_group_permissio_permission_id_84c5c92e_fk_auth_perm; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1420,7 +1295,6 @@ ALTER TABLE ONLY public.auth_group_permissions
 
 
 --
--- TOC entry 2828 (class 2606 OID 16672)
 -- Name: auth_group_permissions auth_group_permissions_group_id_b120cbf9_fk_auth_group_id; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1429,7 +1303,6 @@ ALTER TABLE ONLY public.auth_group_permissions
 
 
 --
--- TOC entry 2827 (class 2606 OID 16663)
 -- Name: auth_permission auth_permission_content_type_id_2f476e4b_fk_django_co; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1438,7 +1311,6 @@ ALTER TABLE ONLY public.auth_permission
 
 
 --
--- TOC entry 2831 (class 2606 OID 16692)
 -- Name: auth_user_groups auth_user_groups_group_id_97559544_fk_auth_group_id; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1447,7 +1319,6 @@ ALTER TABLE ONLY public.auth_user_groups
 
 
 --
--- TOC entry 2830 (class 2606 OID 16687)
 -- Name: auth_user_groups auth_user_groups_user_id_6a12ed8b_fk_auth_user_id; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1456,7 +1327,6 @@ ALTER TABLE ONLY public.auth_user_groups
 
 
 --
--- TOC entry 2833 (class 2606 OID 16706)
 -- Name: auth_user_user_permissions auth_user_user_permi_permission_id_1fbb5f2c_fk_auth_perm; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1465,7 +1335,6 @@ ALTER TABLE ONLY public.auth_user_user_permissions
 
 
 --
--- TOC entry 2832 (class 2606 OID 16701)
 -- Name: auth_user_user_permissions auth_user_user_permissions_user_id_a95ead1b_fk_auth_user_id; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1474,7 +1343,6 @@ ALTER TABLE ONLY public.auth_user_user_permissions
 
 
 --
--- TOC entry 2834 (class 2606 OID 16725)
 -- Name: django_admin_log django_admin_log_content_type_id_c4bce8eb_fk_django_co; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1483,15 +1351,12 @@ ALTER TABLE ONLY public.django_admin_log
 
 
 --
--- TOC entry 2835 (class 2606 OID 16730)
 -- Name: django_admin_log django_admin_log_user_id_c564eba6_fk_auth_user_id; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.django_admin_log
     ADD CONSTRAINT django_admin_log_user_id_c564eba6_fk_auth_user_id FOREIGN KEY (user_id) REFERENCES public.auth_user(id) DEFERRABLE INITIALLY DEFERRED;
 
-
--- Completed on 2020-02-27 06:04:54
 
 --
 -- PostgreSQL database dump complete
