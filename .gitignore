@@ -32,4 +32,4 @@ db.sqlite3-journal
 env/
 venv/
 arrowDB
-Arrow/local_settings.py
+local_setting.py
