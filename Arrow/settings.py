@@ -71,8 +71,7 @@ MIDDLEWARE = [
     'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
-SESSION_ENGINE = 'django.contrib.sessions.backends.file'
-SESSION_FILE_PATH = 'static/session.json'
+SESSION_ENGINE = 'django.contrib.sessions.backends.db'
 SESSION_COOKIE_HTTPONLY = True
 SESSION_COOKIE_AGE = 600
 SESSION_SAVE_EVERY_REQUEST = True
@@ -104,23 +103,13 @@ WSGI_APPLICATION = 'Arrow.wsgi.application'
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
 if local_setting:
+    DATABASES = local_setting.DATABASES
+else:
     import dj_database_url
-
     db_from_env = dj_database_url.config()
     DATABASES = {
         'default': dj_database_url.config()
     }
-else:
-    DATABASES = {
-            'default': {
-                'ENGINE': 'django.db.backends.postgresql',
-                'NAME': 'appDB',
-                'USER': 'postgres',
-                'PASSWORD': 'arrowmgr',
-                'HOST': '127.0.0.1',
-                'PORT': 5432,
-            }
-        }
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
