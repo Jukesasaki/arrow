@@ -13,18 +13,20 @@ from util import log_util
 def login_filter(func):
     def login_judge(request):
         log_util.log_util(request.method)
+        print(type(request.session.get('user')))
         try:
             if request.method == 'GET':
                 return render(request, 'index.html')
             if request.method == 'POST':
-                if request.session.get('user'):
+                if isinstance(request.session.get('user'), int):
                     return func(request)
                 user = pass_check(request.POST)
-                if not isinstance(user, str):
+                print(user)
+                if user >= 0:
                     request.session['user'] = user
                     return func(request)
                 else:
-                    d = {'message': user}
+                    d = {'message': 'IDまたはパスが違います'}
                     return render(request, 'index.html', d)
         # except RequestException as e:
         #     request.session.clear()
@@ -44,11 +46,12 @@ def login_filter(func):
 def session_filter(func):
     def session_judge(request):
         log_util.log_util(request.method)
+        print(request.session.get('user'))
         try:
             if request.method == 'GET':
                 return render(request, 'index.html')
             if request.method == 'POST':
-                if request.session.get('user'):
+                if isinstance(request.session.get('user'), int):
                     return func(request)
                 else:
                     d = {'except': 'セッションエラー'}

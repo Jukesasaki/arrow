@@ -49,7 +49,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-SESSION_ENGINE = 'django.contrib.sessions.backends.cache'
+SESSION_ENGINE = 'django.contrib.sessions.backends.db'
 SESSION_COOKIE_AGE = 600
 SESSION_SAVE_EVERY_REQUEST = True
 
@@ -89,6 +89,16 @@ DATABASES = {
         'PORT': 5432,
     }
 }
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'deju7ulhlfoub4',
+#         'USER': 'lyjlifsrkavhlv',
+#         'PASSWORD': '20e37b8b41fd2eb8add8ccd7f15b2054c03f7ffc1c91ffc6b906dd1a8e57d8cb',
+#         'HOST': 'ec2-52-73-247-67.compute-1.amazonaws.com',
+#         'PORT': 5432,
+#     }
+# }
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.postgresql',

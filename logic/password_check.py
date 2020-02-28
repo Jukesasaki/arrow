@@ -9,7 +9,6 @@ def pass_check(args):
             if (cl.dec(enc_data['password']) == args['pass']) \
                     and (enc_data['name'] == args['name']):
                 return User.objects.all().filter(password=enc_data['password']) \
-                    .values('name', 'password', 'level')
-        return 'IDまたはパスが違います'
+                    .values('level')[0]['level']
     except KeyError:
         pass

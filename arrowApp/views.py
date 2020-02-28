@@ -15,7 +15,7 @@ from util import log_util
 def login(request):
     log_util.log_util(sys._getframe().f_code.co_name)
     d = {'form': form.CheckForm(),
-         'session': request.session['user'][0]['level']
+         'session': request.session.get('user')
          }
     return render(request, 'main.html', d)
 
@@ -49,7 +49,7 @@ def result(request):
         'typ_name': type_str[0],
         'type': type_str[1],
         'keyword': keyword_str,
-        'session': request.session['user'][0]['level']
+        'session': request.session.get('user')
     }
     return render(request, 'result.html', d)
 
