@@ -26,6 +26,7 @@ def login_filter(func):
                     request.session['user'] = user
                     return func(request)
                 else:
+                    request.session.clear()
                     d = {'message': 'IDまたはパスが違います'}
                     return render(request, 'index.html', d)
         # except RequestException as e:
@@ -53,7 +54,7 @@ def session_filter(func):
             if request.method == 'POST':
                 if isinstance(request.session.get('user'), int):
                     return func(request)
-                else:
+                elif request.session.get('user') is None:
                     d = {'except': 'セッションエラー'}
                     return render(request, 'fail.html', d)
         # except RequestException as e:

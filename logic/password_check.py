@@ -10,5 +10,6 @@ def pass_check(args):
                     and (enc_data['name'] == args['name']):
                 return User.objects.all().filter(password=enc_data['password']) \
                     .values('level')[0]['level']
+        return -1
     except KeyError:
         pass
