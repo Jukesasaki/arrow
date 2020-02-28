@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 import os
 
+import django_heroku
+
 try:
     from .local_settings import *
 except ImportError:
@@ -146,5 +148,5 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
-
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
+django_heroku.settings(locals(), staticfiles=False)
