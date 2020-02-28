@@ -7,8 +7,8 @@ from util import log_util
 # ＧＥＴリクエストかＰＯＳＴリクエストかの振るい分け
 # ＰＯＳＴかつセッションが存在すればファンクションを実行
 # セッションがなければログイン認証だと判断しＤＢから複合化を行う
-# 認証すればクエリセットが返ってくるためファンクション実行
-# 失敗すれば失敗の文字列が返ってくるためindex.htmlへ遷移
+# 認証すればINT(0以上)が返ってくるためファンクション実行
+# 失敗すればINT(0未満)が返ってくるためindex.htmlへ遷移
 def login_filter(func):
     def login_judge(request):
         log_util.log_util(request.method)
