@@ -1,5 +1,4 @@
 from django.shortcuts import render
-from requests import RequestException
 
 from logic.password_check import pass_check
 from util import log_util
@@ -54,7 +53,7 @@ def session_filter(func):
             if request.method == 'POST':
                 if isinstance(request.session.get('user'), int):
                     return func(request)
-                elif request.session.get('user') is None:
+                elif request.session.get('user'):
                     d = {'except': 'セッションエラー'}
                     return render(request, 'fail.html', d)
         # except RequestException as e:
